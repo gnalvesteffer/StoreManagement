@@ -1,0 +1,76 @@
+﻿@model ICollection<StoreManagement.Models.ViewModels.StoreViewModel>
+
+<h2>Stores</h2>
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Manager</th>
+        <th>Hours Of Operation</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var store in Model.OrderBy(x => x.StoreNumber))
+    {
+        <tr>
+            <td>
+                @store.StoreNumber
+            </td>
+            <td>
+                @store.StoreName
+            </td>
+            <td>
+                @store.StoreManagerName
+            </td>
+            <td>
+                @store.OpeningTime - @store.ClosingTime
+            </td>
+            <td>
+                <a href="/store/@store.StoreNumber">
+                    Edit
+                </a>
+                <a href="#" data-storenumber="@store.StoreNumber">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <a href="/store/new/">Create</a>
+        </td>
+    </tr>
+</table>
+
+<div id="error-message" class="alert alert-danger" role="alert"></div>
+
+<script>
+    var errorMessageContainer = $("#error-message");
+    errorMessageContainer.hide();
+    function showError(message) {
+        errorMessageContainer.text(message);
+        errorMessageContainer.fadeIn();
+    }
+
+    $("a[data-storenumber]").click(function () {
+        if (confirm("Are you sure you want to delete this store?")) {
+            $.ajax({
+                url: '/api/store/' + $(this).data("storenumber"),
+                type: 'DELETE',
+                data: $("#store-form").serialize(),
+                statusCode: {
+                    200: function (data) {
+                        window.location.href = "/stores/";
+                    },
+                    400: function (data) {
+                        showError(data.responseText);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+</script>

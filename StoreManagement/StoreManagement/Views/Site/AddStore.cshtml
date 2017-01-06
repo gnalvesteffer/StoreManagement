@@ -1,0 +1,53 @@
+﻿<a href="/stores/">&lt; Back</a>
+<h2>New Store</h2>
+
+<form id="store-form" name="form" class="form-inline">
+    <div class="form-group">
+        <label for="form.StoreName">Store Name</label>
+        <input class="form-control" name="StoreName" type="text" />
+    </div>
+
+    <div class="form-group">
+        <label for="form.StoreManagerName">Manager</label>
+        <input class="form-control" name="StoreManagerName" type="text" />
+    </div>
+
+    <div class="form-group">
+        <label for="form.OpeningTime">Opening Time</label>
+        <input class="form-control" name="OpeningTime" type="text" placeholder="example: 8:00AM" />
+    </div>
+
+    <div class="form-group">
+        <label for="form.ClosingTime">Closing Time</label>
+        <input class="form-control" name="ClosingTime" type="text" placeholder="example: 5:00PM" />
+    </div>
+
+    <input id="form-submit-button" class="btn btn-default" type="button" value="Save Changes" style="margin: 10px 0" />
+</form>
+
+<div id="error-message" class="alert alert-danger" role="alert"></div>
+
+<script>
+    var errorMessageContainer = $("#error-message");
+    errorMessageContainer.hide();
+    function showError(message) {
+        errorMessageContainer.text(message);
+        errorMessageContainer.fadeIn();
+    }
+
+    $("#form-submit-button").click(function () {
+        $.ajax({
+            url: '/api/store/add',
+            type: 'POST',
+            data: $("#store-form").serialize(),
+            statusCode: {
+                200: function(data) {
+                    window.location.href = "/stores/";
+                },
+                400: function (data) {
+                    showError(data.responseText);
+                }
+            }
+        });
+    });
+</script>

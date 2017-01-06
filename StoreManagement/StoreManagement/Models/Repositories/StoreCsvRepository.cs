@@ -12,10 +12,16 @@ namespace StoreManagement.Models.Repositories
 {
     public class StoreCsvRepository : IRepository<Store>
     {
-        private static readonly ICollection<Store> _stores = DeserializeStores(File.ReadAllLines(Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, ConfigurationManager.AppSettings["StoresCsvFilePath"])));
+        private readonly ICollection<Store> _stores = DeserializeStores(File.ReadAllLines(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["StoresCsvFilePath"])));
 
         public void Add(Store entity)
         {
+            var existingStore = _stores.FirstOrDefault(x => x.StoreNumber == entity.StoreNumber);
+            if (existingStore != null)
+            {
+                _stores.Remove(existingStore);
+            }
+            if (entity.StoreNumber == null) entity.StoreNumber = _stores.Max(x => x.StoreNumber) + 1;
             _stores.Add(entity);
         }
 
@@ -31,7 +37,7 @@ namespace StoreManagement.Models.Repositories
 
         public void SaveChanges()
         {
-            File.WriteAllText(ConfigurationManager.AppSettings["StoresCsvFilePath"], SerializeStores(_stores.ToArray()));
+            File.WriteAllText(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["StoresCsvFilePath"]), SerializeStores(_stores.ToArray()));
         }
     }
 }
