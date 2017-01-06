@@ -2,6 +2,7 @@
 My submission for McCoy's Coding Challenge.<br />
 Allows for the management of store information.<br />
 Demo available here: http://demo.bitdungeon.org/
+Spec Sheet: https://www.dropbox.com/s/a6965ai77dp0zai/McCoy%27sCodingChallenge.docx?dl=0
 
 # Pages
 | Page         | Route                | Description                                                                |
