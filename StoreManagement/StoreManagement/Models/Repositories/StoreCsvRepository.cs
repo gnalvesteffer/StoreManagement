@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Configuration;
+using System.Web;
 
 namespace StoreManagement.Models.Repositories
 {
     public class StoreCsvRepository : IRepository<Store>
     {
-        private readonly string _storeCsvFilePath;
-        private static readonly ICollection<Store> _stores = DeserializeStores(File.ReadAllLines(ConfigurationManager.AppSettings["StoresCsvFilePath"]));
+        private static readonly ICollection<Store> _stores = DeserializeStores(File.ReadAllLines(Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, ConfigurationManager.AppSettings["StoresCsvFilePath"])));
 
         public void Add(Store entity)
         {
