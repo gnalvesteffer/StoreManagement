@@ -2,13 +2,15 @@
 
 <h2>Stores</h2>
 <table class="table table-striped">
-    <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Manager</th>
-        <th>Hours Of Operation</th>
-        <th>Action</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Manager</th>
+            <th>Hours Of Operation</th>
+            <th>Action</th>
+        </tr>
+    </thead>
     @foreach (var store in Model.OrderBy(x => x.StoreNumber))
     {
         <tr>
