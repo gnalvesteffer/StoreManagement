@@ -1,6 +1,6 @@
 # Store Management
-My submission for McCoy's Coding Challenge.
-Allows for the management of store information.
+My submission for McCoy's Coding Challenge.<br />
+Allows for the management of store information.<br />
 Demo available here: http://demo.bitdungeon.org/
 
 # Pages
