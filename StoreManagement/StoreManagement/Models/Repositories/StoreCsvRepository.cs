@@ -1,12 +1,10 @@
-﻿using static StoreManagement.Models.Utils.StoreCsvSerializationUtil;
-using StoreManagement.Models.Data;
-using StoreManagement.Models.Utils;
-using System;
+﻿using StoreManagement.Models.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.IO;
 using System.Configuration;
+using System.IO;
+using System.Linq;
 using System.Web;
+using static StoreManagement.Models.Utils.StoreCsvSerializationUtil;
 
 namespace StoreManagement.Models.Repositories
 {

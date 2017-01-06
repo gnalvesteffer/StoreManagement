@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StoreManagement.Models.ViewModels
+﻿namespace StoreManagement.Models.ViewModels
 {
     public class StoreViewModel
     {

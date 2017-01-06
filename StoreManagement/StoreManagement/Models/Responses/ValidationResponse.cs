@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace StoreManagement.Models.Responses
+﻿namespace StoreManagement.Models.Responses
 {
     public class ValidationResponse
     {
