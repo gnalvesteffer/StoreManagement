@@ -47,7 +47,7 @@ Spec sheet: https://www.dropbox.com/s/a6965ai77dp0zai/McCoy%27sCodingChallenge.d
     }
     ```
     
-- # Updating a Store
+- # Removing a Store
     DELETE to *"/api/store/{storeNumber}"*
     
     Example: *"/api/store/1"*
