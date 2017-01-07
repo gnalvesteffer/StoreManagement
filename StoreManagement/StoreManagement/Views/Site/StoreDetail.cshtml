@@ -8,28 +8,28 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="StoreName">Store Name</label>
-                <input class="form-control" name="StoreName" type="text" />
+                <input class="form-control" name="StoreName" type="text" value="@Model.StoreName" />
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
                 <label for="StoreManagerName">Manager</label>
-                <input class="form-control" name="StoreManagerName" type="text" />
+                <input class="form-control" name="StoreManagerName" type="text" value="@Model.StoreManagerName" />
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
                 <label for="OpeningTime">Opening Time</label>
-                <input class="form-control" name="OpeningTime" type="text" placeholder="example: 8:00AM" />
+                <input class="form-control" name="OpeningTime" type="text" placeholder="example: 8:00AM" value="@Model.OpeningTime" />
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
                 <label for="ClosingTime">Closing Time</label>
-                <input class="form-control" name="ClosingTime" type="text" placeholder="example: 5:00PM" />
+                <input class="form-control" name="ClosingTime" type="text" placeholder="example: 5:00PM" value="@Model.ClosingTime" />
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <input id="form-submit-button" class="btn btn-default" type="button" value="Create Store" />
+            <input id="form-submit-button" class="btn btn-default" type="button" value="Save Changes" />
         </div>
     </div>
 </form>
