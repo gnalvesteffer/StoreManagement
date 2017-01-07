@@ -6,8 +6,7 @@ namespace StoreManagement.Controllers
     public class SiteController : Controller
     {
         private readonly StoreService _storeService = new StoreService();
-
-        // GET: Home
+        
         public ActionResult Index()
         {
             return View();
