@@ -16,10 +16,10 @@ namespace StoreManagement.Models.Forms
             DateTime openingTime = new DateTime();
             DateTime closingTime = new DateTime();
 
-            if (StoreName.Contains(",")) throw new Exception("Store name cannot contain commas.");
-            if (StoreManagerName.Contains(",")) throw new Exception("Manager name cannot contain commas.");
             if (string.IsNullOrWhiteSpace(StoreName)) throw new Exception("Store name must be provided.");
             if (string.IsNullOrWhiteSpace(StoreManagerName)) throw new Exception("Manager name must be provided");
+            if (StoreName.Contains(",")) throw new Exception("Store name cannot contain commas.");
+            if (StoreManagerName.Contains(",")) throw new Exception("Manager name cannot contain commas.");
             if (string.IsNullOrWhiteSpace(OpeningTime) || !string.IsNullOrWhiteSpace(OpeningTime) && !DateTime.TryParse(OpeningTime, out openingTime)) throw new Exception("Opening time is not provided in a valid format.");
             if (string.IsNullOrWhiteSpace(ClosingTime) || !string.IsNullOrWhiteSpace(ClosingTime) && !DateTime.TryParse(ClosingTime, out closingTime)) throw new Exception("Closing time is not provided in a valid format.");
 

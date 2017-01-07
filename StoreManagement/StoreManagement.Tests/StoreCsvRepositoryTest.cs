@@ -40,5 +40,13 @@ namespace StoreManagement.Tests
             var actual = StoreCsvSerializationUtil.SerializeStores(new Store(null, "Austin", null, new DateTime(2017, 1, 6, 8, 30, 0), null));
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void DeserializeStoresWithGoodRecords()
+        {
+            var expectedStore = new Store(1, "Test Shop", "Test Person", new DateTime(2017, 1, 6, 7, 30, 0), new DateTime(2017, 1, 6, 16, 0, 0));
+            var actual = StoreCsvSerializationUtil.SerializeStores(new Store(null, "Austin", null, new DateTime(2017, 1, 6, 8, 30, 0), null));
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
